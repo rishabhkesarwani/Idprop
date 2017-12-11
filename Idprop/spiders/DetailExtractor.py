@@ -15,7 +15,8 @@ class DetailExtractorSpider(scrapy.Spider):
         person['url'] = response.url
         person['profile'] = info_pad.css('span.db::text')[1].extract()
         contact = info_pad.css('div.cd-info.clearfix span.cd-nm::text')
-        person['email'] = contact[0].extract()
-        if len(contact) == 2:
-            person['mobile'] = contact[1].extract()
+        if len(contact) != 0:
+            person['email'] = contact[0].extract()
+            if len(contact) == 2:
+                person['mobile'] = contact[1].extract()
         yield person
