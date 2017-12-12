@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import create_engine, Column, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.engine.url import URL
 
@@ -16,11 +16,10 @@ def create_deals_table(engine):
 
 
 class Person(DeclarativeBase):
-    __tablename__ = "architects_idprop"
+    __tablename__ = "kitchen_bath_remodelers_idprop"
 
-    id = Column(Integer, primary_key=True)
-    name = Column('name', String)
+    name = Column('name', String, nullable=True)
     profile = Column('profile', String, nullable=True)
     email = Column('email', String, nullable=True)
     mobile = Column('mobile', String, nullable=True)
-    url = Column('url', String, nullable=True)
+    url = Column('url', String, primary_key=True)
